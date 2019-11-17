@@ -1,0 +1,94 @@
+package dailyassign;
+import java.util.Scanner;
+
+public class removeDup_LL {
+
+	static node head;
+	static class node
+	{
+		node next;
+		int data;
+		node(int d)
+		{
+			data=d;
+			next=null;
+		}
+	}
+	public static removeDup_LL insert(removeDup_LL li,int data)
+	{
+		node newNode=new node(data);
+		newNode.next=null;
+		if(head==null)
+		{
+			head=newNode;
+		}
+		else
+		{
+			node curr=head;
+			while(curr.next!=null)
+			{
+				curr=curr.next;
+			}
+			curr.next=newNode;
+		}
+		return li;
+	}
+
+	public static removeDup_LL duplicate(removeDup_LL li)
+	{
+		node n=head;
+		while(n!=null)
+		{
+			node m=head;
+			boolean x=true;
+			while(m!=n)
+			{
+				if(m.data==n.data)
+				{
+					x=false;
+					break;
+				}
+				m=m.next;
+			}
+			if(x==false)
+			{
+				node cur=head;
+				while(cur.next!=n)
+				{
+					cur=cur.next;
+				}
+				cur.next=cur.next.next;
+			}
+			n=n.next;
+		}
+		return li;
+	}
+
+	static void display(removeDup_LL li)
+	{
+		node current=head;
+		while(current.next!=null)
+		{
+			System.out.print(current.data+" ");
+			current=current.next;
+		}
+		System.out.print(current.data+" ");
+	}
+
+	public static void main(String[] args)
+	{
+		removeDup_LL li=new removeDup_LL();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Number of elements");
+		int n=sc.nextInt();
+		System.out.println("Enter data");
+		for(int i=0;i<n;i++)
+		{
+			int d=sc.nextInt();
+			insert(li,d);
+		}
+		duplicate(li);
+		System.out.println("LinkedList after removing duplicate elements are");
+		display(li);
+		}
+}
