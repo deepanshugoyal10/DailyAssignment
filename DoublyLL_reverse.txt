@@ -1,0 +1,90 @@
+package dailyassign;
+
+import java.util.Scanner;
+
+public class Doubly_LL_reverse {
+
+	static Node head;
+	static class Node
+	{
+		int data;
+		Node next;
+		Node prev;
+		 Node(int d)
+		 {
+			data=d;
+			next=null;
+			prev=null;
+		 }
+	}
+
+	public static Doubly_LL_reverse insert (Doubly_LL_reverse li,int data) {
+		 Node newNode=new Node(data);
+         newNode.next=null;
+         if(li.head==null)
+         {
+             li.head=newNode;
+             newNode.next=null;
+             newNode.prev=null;
+         }
+         else
+         {
+             Node last=li.head;
+             while(last.next!=null)
+             {
+                 last=last.next;
+             }
+             last.next=newNode;
+             newNode.prev=last;
+             newNode.next=null;
+         }
+         return li;
+     }
+
+
+	public static void display(Doubly_LL_reverse li)
+	{
+		Node current=li.head;
+
+		while(current.next!=null)
+		{
+			System.out.print(current.data+" ");
+			current=current.next;
+		}
+		System.out.print(current.data);
+
+	}
+	public static void reverse()
+	{
+		Node current = head;
+		Node next1 = null;
+		while(current.next!=null)
+		{
+			current=current.next;
+		}
+		while(current!=head)
+		{
+			System.out.print(current.data+" ");
+			current=current.prev;
+		}
+		System.out.println(current.data);
+	}
+
+	public static void main(String[] args)
+	{
+		Doubly_LL_reverse li=new Doubly_LL_reverse();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter number of elements");
+		int n=sc.nextInt();
+		for(int i=0;i<n;i++)
+		{
+			int d=sc.nextInt();
+			insert(li,d);
+		}
+		System.out.println("The Original LinkedList is as follows: ");
+		display(li);
+		System.out.println("\nAfter reversing LinkedList is as follows");
+		reverse();
+	}
+
+}
