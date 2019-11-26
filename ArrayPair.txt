@@ -1,0 +1,41 @@
+package dailyassign;
+
+import java.util.Scanner;
+
+public class Array_Pair {
+
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter number of elements of first array");
+		int n=sc.nextInt();
+		System.out.println("Enter numer of elements of second array");
+		int m=sc.nextInt();
+		System.out.println("Enter Number");
+		int l=sc.nextInt();
+		int a[]=new int[n];
+		int b[]=new int[m];
+		System.out.println("Enter Elements of first array");
+		for(int i=0;i<n;i++)
+		{
+			a[i]=sc.nextInt();
+		}
+		System.out.println("Enter Elements of second array");
+		for(int i=0;i<m;i++)
+		{
+			b[i]=sc.nextInt();
+		}
+
+		for(int i=0;i<n;i++)
+		{
+			for(int j=0;j<m;j++)
+			{
+				if(a[i]+b[j]==l)
+				{
+					System.out.println(a[i]+" , "+b[j]);
+				}
+			}
+		}
+
+	}
+}
