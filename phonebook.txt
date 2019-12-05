@@ -4,8 +4,7 @@ public class phonebook
 {
 		public static void main(String args[])
 	{
-			HashMap<String,String> h=new HashMap<String,String>();
-	phonebook p=new phonebook();
+		HashMap<String,String> h=new HashMap<String,String>();
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the size");
 		int size=sc.nextInt();
