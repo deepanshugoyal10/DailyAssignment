@@ -1,0 +1,38 @@
+package dailyassign;
+
+import java.util.Scanner;
+
+public class Highest_Prime {
+ public static void main(String[] args)
+ {
+   Scanner sc=new Scanner(System.in);
+   System.out.println("Enter Element");
+   int d=sc.nextInt();
+   //int z=d;
+ //	int arr[]=new int[d];
+   int flag=1;
+   int max=1;
+   for(int i=1;i<d/2;i++)
+   {
+     if(d%i==0)
+     {
+         for(int j=2;j<i/2;j++)
+         {
+           if(i%j==0)
+           {
+             flag=0;
+           }
+         }
+         if(flag==1)
+         {
+           if(i>max)
+           {
+           max=i;
+         }
+         }
+     }
+   }
+   System.out.println("Highest Prime Factor is"+max);
+
+ }
+}
