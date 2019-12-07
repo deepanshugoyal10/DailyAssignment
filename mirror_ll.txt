@@ -1,0 +1,41 @@
+package dailyassign;
+
+public class mirror_ll
+{
+    static class Node
+	{
+		int data;
+		Node left,right;
+		Node(int d)
+		{
+		   data=d;
+		}
+	}
+	static Node root;
+	boolean isMirror(Node root)
+	{
+		return check(root,root);
+	}
+	boolean check(Node x,Node y)
+	{
+		if(x==null&&y==null)
+			return true;
+		if(x!=null&&y!=null&&x.data==y.data)
+		{
+			return (check(x.left,y.right))&&(check(x.right,y.left));
+		}
+		return false;
+	}
+	public static void main(String args[])
+	{
+		mirror_ll mm=new mirror_ll();
+		mm.root=new Node(1);
+		mm.root.left=new Node(2);
+		mm.root.right=new Node(2);
+		mm.root.left.left=new Node(3);
+		mm.root.left.right=new Node(4);
+		mm.root.right.left=new Node(4);
+		mm.root.right.right=new Node(3);
+    boolean b=mm.isMirror(mm.root);
+		System.out.println(b);
+	}
